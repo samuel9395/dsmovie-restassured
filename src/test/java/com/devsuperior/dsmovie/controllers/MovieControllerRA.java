@@ -52,7 +52,7 @@ public class MovieControllerRA {
 	@Test
 	public void findAllShouldReturnOkWhenMovieNoArgumentsGiven() {
 
-		given().get("/movies?page=0")
+		given().get("/movies")
 				.then().statusCode(200)
 				.body("content.title", hasItems("Matrix Resurrections", "The Witcher"));
 	}
@@ -102,7 +102,7 @@ public class MovieControllerRA {
 				.accept(ContentType.JSON)
 				.when().post("/movies")
 				.then().statusCode(422)
-				.body("errors.message", hasItems("Title must be between 5 and 80 characters", "Required field"));
+				.body("errors.message", hasItems("Tamanho deve ser entre 5 e 80 caracteres", "Campo requerido"));
 	}
 	
 	@Test

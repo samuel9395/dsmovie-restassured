@@ -73,7 +73,7 @@ public class ScoreControllerRA {
 				.accept(ContentType.JSON)
 				.when().put("/scores")
 				.then().statusCode(422)
-				.body("errors.message[0]", equalTo("Required field"))
+				.body("errors.message[0]", equalTo("Campo requerido"))
 				.body("status", equalTo(422));
 	}
 	
@@ -89,7 +89,7 @@ public class ScoreControllerRA {
 				.accept(ContentType.JSON)
 				.when().put("/scores")
 				.then().statusCode(422)
-				.body("errors.message[0]", equalTo("Score should be greater than or equal to zero"))
+				.body("errors.message[0]", equalTo("Valor mínimo 0"))
 				.body("status", equalTo(422));
 	}
 }
